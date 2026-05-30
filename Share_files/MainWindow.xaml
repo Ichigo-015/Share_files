@@ -34,6 +34,10 @@
                     <RowDefinition Height="25*"/>
                 </Grid.RowDefinitions>
 
+                <Grid Grid.Row="0" Grid.Column="0">
+                    <TextBlock x:Name="Listen_Statement" Text="起動中..." />
+                </Grid>
+
                 <Grid Grid.Row="1" Grid.Column="0">
                     <TextBox x:Name="Ftp_Server_IP"
                              Foreground="Black"
@@ -42,12 +46,21 @@
                              />
                 </Grid>
 
-                <Grid Grid.Row="1" Grid.Column="2" Background="DarkRed">
+                <Grid Grid.Row="1" Grid.Column="2">
                     <Button x:Name="btnConnect"
                             Content="Connect"
                             FontFamily="Consolas"
                             Click="btnConnect_Click"
+                            Margin="5,0"
                             />
+                </Grid>
+
+                <Grid Grid.Row="1" Grid.Column="3">
+                    <Button x:Name="btnListen"
+                            Content="Listen"
+                            FontFamily="Consolas"
+                            Click="btnListen_Click"
+                            Margin="5,0"/>
                 </Grid>
 
                 <Grid Grid.Row="2" Grid.Column="0"
@@ -64,16 +77,36 @@
                             HorizontalAlignment="Center"
                             VerticalAlignment="Center">
 
-                    <Button x:Name="btnDownload"
-                            Content="Download"
-                            Click="btnDownload_Click"
+                    <Button x:Name="btnClose"
+                            Content="Close"
+                            Click="btnClose_Click"
                             Margin="10"/>
 
                     <Button x:Name="btnUpload"
                             Content="Upload"
                             Click="btnUpload_Click"
                             Margin="10"/>
+
+                    <Button x:Name="btnSaveTo"
+                            Content="SaveTo"
+                            Click="btnSaveTo_Click"
+                            Margin="10"/>
                 </StackPanel>
+            </Grid>
+
+            <Grid Grid.Row="2" Grid.Column="0">
+                <ListBox x:Name="SelectedFilesList" Margin="10" Height="150"/>
+            </Grid>
+
+            <Grid Grid.Row="2" Grid.Column="2">
+                <ListBox x:Name="ReceivedFilesList" Margin="10" Height="150"/>
+            </Grid>
+
+            <Grid Grid.Row="1" Grid.Column="2">
+                <TextBox x:Name="SaveFileTo"
+                             Foreground="Black"
+                             Background="Gray"
+                             FontFamily="Consolas"/>
             </Grid>
         </Grid>
     </Grid>
